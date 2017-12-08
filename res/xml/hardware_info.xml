@@ -43,6 +43,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.BrandedAccountPreferenceController"/>
 
+    <!-- Device manufacturer -->
+    <Preference
+        android:key="hardware_info_device_manufacturer"
+        android:title="@string/device_manufacturer"
+        android:summary="@string/summary_placeholder"
+        settings:controller="com.android.settings.deviceinfo.hardwareinfo.DeviceManufacturerPreferenceController"
+        settings:enableCopying="true"/>
+
     <Preference
         android:key="hardware_info_device_model"
         android:title="@string/model_info"
