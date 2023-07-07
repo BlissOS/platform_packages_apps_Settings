@@ -106,31 +106,23 @@ public class BlissSpecUtils {
     public static String getScreenRes(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = windowManager.getDefaultDisplay();
-        DisplayMetrics metrics = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getRealMetrics(metrics);
         Point size = new Point();
         display.getRealSize(size);
         int width = size.x;
-        int height = size.y;
-        int rot = windowManager.getDefaultDisplay().getRotation();
-        int dpi = metrics.densityDpi;
-        int rotation = 0;
+        int height = size.y + getNavigationBarHeight(windowManager);
+        return width + " x " + height;
+    }
 
-        // Show the screen rotation degree
-        if (rot == 1){
-            rotation = 90;
-        } else if (rot == 2){
-            rotation = 180;
-        } else if (rot == 3){
-            rotation = 270;
-        } else rotation = 0;
-
-        // Return the screen resolution
-        // Swap Width and Height in case w < h
-        if (width < height){
-        return String.format("%dx%d, Rotation: %d, DPI: %d", height, width, rotation, dpi);
-        } else {
-        return String.format("%dx%d, Rotation: %d, DPI: %d", width, height, rotation, dpi);}
+    private static int getNavigationBarHeight(WindowManager wm) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(metrics);
+        int usableHeight = metrics.heightPixels;
+        wm.getDefaultDisplay().getRealMetrics(metrics);
+        int realHeight = metrics.heightPixels;
+        if (realHeight > usableHeight)
+            return realHeight - usableHeight;
+        else
+            return 0;
     }
 
     public static int getBatteryCapacity(Context context) {
