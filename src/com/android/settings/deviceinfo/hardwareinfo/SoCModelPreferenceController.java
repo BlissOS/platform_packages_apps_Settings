@@ -17,7 +17,6 @@
 package com.android.settings.deviceinfo.hardwareinfo;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.SystemProperties;
 
 import com.android.settings.R;
@@ -43,12 +42,6 @@ public class SoCModelPreferenceController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        if (!Build.SOC_MODEL.equals(Build.UNKNOWN)) {
-            if (!Build.SOC_MANUFACTURER.equals(Build.UNKNOWN)) {
-                return Build.SOC_MANUFACTURER + " " + Build.SOC_MODEL;
-            }
-            return Build.SOC_MODEL;
-        }
-        return SystemProperties.get("ro.board.platform");
+        return SystemProperties.get("ro.bliss.cpuname");
     }
 }

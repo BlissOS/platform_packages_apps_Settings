@@ -43,8 +43,7 @@ import com.android.settings.R;
 
 public class BlissSpecUtils {
     private static final String DEVICE_NAME_MODEL_PROPERTY = "ro.product.system.model";
-    private static final String BLISS_CPU_MODEL_PROPERTY = "ro.soc.model";
-    private static final String FALLBACK_CPU_MODEL_PROPERTY = "ro.board.platform";
+    private static final String BLISS_CPU_MODEL_PROPERTY = "ro.bliss.cpuname";
     private static final String POWER_PROFILE_CLASS = "com.android.internal.os.PowerProfile";
     static String aproxStorage;
 
@@ -93,11 +92,8 @@ public class BlissSpecUtils {
 
     public static String getProcessorModel() {
         String cpuModelBliss = SystemProperties.get(BLISS_CPU_MODEL_PROPERTY);
-        String cpuModelFallback = SystemProperties.get(FALLBACK_CPU_MODEL_PROPERTY);
         if (!cpuModelBliss.isEmpty()) {
             return cpuModelBliss;
-        } else if (!cpuModelFallback.isEmpty()) {
-            return cpuModelFallback;
         } else {
             return "unknown";
         }
