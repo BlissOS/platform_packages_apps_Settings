@@ -26,7 +26,7 @@
     <!-- Top category -->
     <!-- Device name -->
     <com.android.settings.widget.ValidatedEditTextPreference
-        android:icon="@drawable/ic_settings_display_acc"
+        android:icon="@drawable/ic_settings_display_tablet_acc"
         android:key="device_name"
         android:summary="@string/summary_placeholder"
         android:title="@string/my_device_info_device_name_preference_title"
