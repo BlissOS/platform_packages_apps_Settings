@@ -20,8 +20,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/phone_image"
-        android:layout_width="100dp"
-        android:layout_height="205dp"
+        android:layout_width="240dp"
+        android:layout_height="135dp"
         android:layout_marginTop="30.0dip"
         android:layout_marginBottom="36.0dip"
         android:layout_marginStart="30.0dp"
@@ -32,15 +32,15 @@
 
     <com.android.utils.aboutWallpaperView
         android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:scaleType="centerCrop"
-	android:gravity="center"
-	android:elevation="0dp"
-	android:contentDescription="@null"
-	android:orientation="vertical" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:gravity="center"
+        android:elevation="0dp"
+        android:contentDescription="@null"
+        android:orientation="horizontal" />
 
     <ImageView
-	android:layout_width="50dp"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:layout_gravity="center"
 	android:src="@drawable/bliss_logo" />
