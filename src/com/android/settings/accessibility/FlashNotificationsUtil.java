@@ -81,7 +81,7 @@ class FlashNotificationsUtil {
                     return true;
                 }
             }
-        } catch (CameraAccessException ignored) {
+        } catch (CameraAccessException  | NullPointerException ignored) {
             Log.w(LOG_TAG, "Failed to get valid camera for camera flash notification.");
         }
         return false;

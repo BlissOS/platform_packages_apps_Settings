@@ -242,7 +242,7 @@ public class DeviceUtils {
                     return true;
                 }
             }
-        } catch (CameraAccessException | AssertionError e) {
+        } catch (CameraAccessException | AssertionError | NullPointerException e) {
             // Ignore
         }
         return false;
