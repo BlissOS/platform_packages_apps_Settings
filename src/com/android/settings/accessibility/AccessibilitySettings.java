@@ -208,8 +208,10 @@ public class AccessibilitySettings extends DashboardFragment implements
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        use(AccessibilityHearingAidPreferenceController.class)
-                .setFragmentManager(getFragmentManager());
+        AccessibilityHearingAidPreferenceController ctrl = use(AccessibilityHearingAidPreferenceController.class);
+        if (ctrl != null) {
+            ctrl.setFragmentManager(getFragmentManager());
+        }
     }
 
     @Override
